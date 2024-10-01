@@ -1,0 +1,120 @@
+<p-dialog [(visible)]="displayModal" [modal]="true" header="Cadastrar Paciente" [closable]="false" class="modal" [style]="{ width: '75%' }">
+  <div>
+      <form #patientForm="ngForm" (ngSubmit)="savePatient()"  class="divPrincipal">
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+          <div class="name">
+              <label for="nome">Nome: *</label>
+              <input id="nome" [(ngModel)]="newPatient.nome" name="nome" required placeholder="Digite o nome" [disabled]="isViewMode" />
+              <div *ngIf="patientForm.controls['nome']?.invalid && patientForm.controls['nome']?.touched" class="error-message">
+                Nome é obrigatório.
+              </div>
+          </div>
+          <div class="data">
+              <label for="data_nascimento">Data de Nascimento: *</label>
+              <input id="data_nascimento" type="date" [(ngModel)]="newPatient.data_nascimento" name="data_nascimento" required [disabled]="isViewMode" />
+                <div *ngIf="patientForm.controls['data_nascimento']?.invalid && patientForm.controls['data_nascimento']?.touched" class="error-message">
+                    Data de Nascimento é obrigatória.
+                </div>
+          </div>
+          <div>
+            <label for="cpf">CPF: *</label>
+            <p-inputMask 
+            mask="999.999.999-99" 
+            [(ngModel)]="newPatient.cpf" 
+            id="cpf" 
+            name="cpf" 
+            [required]="true"
+            placeholder="Digite o CPF"
+            [disabled]="isViewMode">
+          </p-inputMask>
+          <div *ngIf="patientForm.controls['cpf']?.invalid && patientForm.controls['cpf']?.touched" class="error-message">
+            CPF é obrigatório.
+          </div>
+            
+          </div>
+          <div>
+              <label for="cartao_sus">Cartão SUS:</label>
+              <p-inputMask [disabled]="isViewMode" mask="999 9999 9999 9999" [(ngModel)]="newPatient.cartao_sus" id="cartao_sus" name="cartao_sus" placeholder="Digite o Cartão SUS"></p-inputMask>
+                
+          </div>
+          <div>
+              <label for="sexo">Sexo: *</label>
+              <select [disabled]="isViewMode" id="sexo" [(ngModel)]="newPatient.sexo" name="sexo" required>
+                  <option value="">Selecione</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outro">Outro</option>
+              </select>
+          </div>
+          <div>
+              <label for="telefone_celular">Telefone Celular: *</label>
+              <p-inputMask
+              [disabled]="isViewMode"
+                 mask="(99) 99999-9999"
+                id="telefone_celular"
+                name="telefone_celular"
+                 [(ngModel)]="newPatient.telefone_celular"
+                 [required]="true"
+                 placeholder="Digite o telefone celular"
+    ></p-inputMask>
+    <div *ngIf="patientForm.controls['telefone_celular']?.invalid && patientForm.controls['telefone_celular']?.touched" class="error-message">
+      Telefone celular é obrigatório.
+    </div>
+          </div>
+          <div>
+              <label for="telefone_responsavel">Telefone Responsável:</label>
+                <p-inputMask  [disabled]="isViewMode" mask="(99) 99999-9999" id="telefone_responsavel" name="telefone_responsavel" [(ngModel)]="newPatient.telefone_responsavel" placeholder="Digite o telefone do responsável"></p-inputMask>
+          </div>
+          <div>
+              <label for="email">Email:</label>
+              <input id="email" [disabled]="isViewMode" [(ngModel)]="newPatient.email" name="email" placeholder="Digite o Email" />
+          </div>
+          <div class="name">
+              <label for="nome_mae">Nome da Mãe: *</label>
+              <input [disabled]="isViewMode" id="nome_mae" [(ngModel)]="newPatient.nome_mae" name="nome_mae" required placeholder="Digite o Nome da Mãe" />
+                <div *ngIf="patientForm.controls['nome_mae']?.invalid && patientForm.controls['nome_mae']?.touched" class="error-message">
+                    Nome da Mãe é obrigatório.
+                </div>
+          </div>
+          <div>
+              <label for="cep">CEP: *</label>
+              <p-inputMask
+      mask="99999-999"
+      id="cep"
+      name="cep"
+      [(ngModel)]="newPatient.cep"
+      [required]="true"
+      placeholder="Digite o CEP"
+      [disabled]="isViewMode"
+    ></p-inputMask>
+    <div *ngIf="patientForm.controls['cep']?.invalid && patientForm.controls['cep']?.touched" class="error-message">
+      CEP é obrigatório.
+    </div>
+          </div>
+          <div>
+              <label for="estado">Estado:</label>
+              <input [disabled]="isViewMode"  id="estado" [(ngModel)]="newPatient.estado" name="estado" placeholder="Digite o Estado" />
+          </div>
+          <div>
+              <label for="cidade">Cidade:</label>
+              <input [disabled]="isViewMode" id="cidade" [(ngModel)]="newPatient.cidade" name="cidade" placeholder="Digite a Cidade" />
+          </div>
+          <div>
+              <label for="endereco">Endereço:</label>
+              <input [disabled]="isViewMode"id="endereco" [(ngModel)]="newPatient.endereco" name="endereco" placeholder="Digite o Endereço" />
+          </div>
+          <div>
+              <label for="complemento">Complemento:</label>
+              <input [disabled]="isViewMode" id="complemento" [(ngModel)]="newPatient.complemento" name="complemento" placeholder="Digite o Complemento" />
+          </div>
+          <div>
+              <label for="bairro">Bairro:</label>
+              <input [disabled]="isViewMode" id="bairro" [(ngModel)]="newPatient.bairro" name="bairro" placeholder="Digite o Bairro" />
+          </div>
+          <footer>
+              <button [disabled]="isViewMode" pButton label="Salvar" type="submit"></button>
+              <button pButton label="Cancelar" (click)="hideDialog()"></button>
+          </footer>
+      </form>
+  </div>
+</p-dialog>

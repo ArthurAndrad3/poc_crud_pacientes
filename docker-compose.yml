@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200" # Mapeia a porta 80 do container para a porta 4200 na sua máquina local
+
+  json-server:
+    image: json-server # Usando a imagem correta
+    volumes:
+      - ./db.json:/data/db.json # Certifique-se de que seu arquivo db.json está na raiz do projeto
+    ports:
+      - "3000:3000" # Mapeia a porta 3000 do container para a porta 3000 na sua máquina local
+    command: json-server --watch /data/db.json --host 0.0.0.0

@@ -1,0 +1,82 @@
+
+.app-container {
+    font-family: Arial, sans-serif;
+    margin: -8px;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #007ad9;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  
+  
+  footer {
+
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f1f1f1;
+  }
+  .filter {
+   
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 1rem; 
+  }
+  #username{
+    width: 350px;
+    margin-bottom: 10px;
+  }
+  #username-help{
+    margin-top: -20px;
+  }
+  .divAddIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    transition: width 0.3s;
+    overflow: hidden;
+    background-color: white; /* Corrigido para usar ponto e vírgula */
+  }
+  
+  .divAddIcon:hover {
+    width: 250px; /* Efeito de hover para aumentar a largura */
+  }
+  
+  .divAddIcon:hover .tooltip {
+    display: inline-block; /* Mostra o tooltip ao passar o mouse */
+    margin-left: 
+    0.5rem;  /* Espaçamento à esquerda do tooltip */
+  }
+  .tooltip {
+    display: none;          /* Inicialmente oculta */
+    font-size: 1rem;      /* Tamanho da fonte */
+    white-space: nowrap;   /* Impede a quebra de linha no texto */
+  }
