@@ -9,6 +9,7 @@ Este projeto é uma Prova de Conceito (PoC) para a criação de um sistema de ge
 - **Cadastro de Pacientes**: Formulário para inserir novos pacientes com validação de campos obrigatórios.
 - **Edição de Pacientes**: Permite editar informações de pacientes existentes.
 - **Listagem de Pacientes**: Exibe uma lista de pacientes cadastrados.
+- **Delete de Pacientes**: Permite excluir pacientes.
 - **Validação de Formulários**: Verificação de campos obrigatórios e formatação correta.
 - **Notificações**: Mensagens informativas sobre operações realizadas (salvo, editado, erro).
 
@@ -52,6 +53,20 @@ Este projeto é uma Prova de Conceito (PoC) para a criação de um sistema de ge
    ng serve
    Abra o navegador e acesse http://localhost:4200.\
    ```
+   ### Instalação e Configuração do `json-server`
+
+1. Instale o `json-server` globalmente, se ainda não tiver:
+
+   ```bash
+   npm install -g json-server
+2. Inicie o servidor json-server apontando para o arquivo db.json:
+
+   ```bash
+   npm run api
+3. O servidor será executado em http://localhost:3000. A lista de pacientes estará disponível em:
+
+   ```bash
+   http://localhost:3000/pacientes
 
 ## Estrutura do Projeto
 
